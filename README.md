@@ -15,7 +15,7 @@ Concerns
 
 1. What are the top 5 brands by receipts scanned among users 21 and over? [Link to SQL Query](https://github.com/whartzler/fetch_analysis/blob/main/Code%20Files/Top_5_Brand.sql)
 
-For this analysis we joined the products to the transactions table by barcode to extract the brand of the product purchased. Than joined the user to the transaction table by barcode to extract customer data and identify which customers were 21 and older. Excluded null brands as this would hurt our final result as these brands are blank.  Next we calculated if any user was older than 21 as of Today 2/2/2025.  
+For this analysis we joined the products to the transactions table by barcode to extract the brand of the product purchased. Than joined the user to the transaction table by barcode to extract customer data and identify which customers were 21 and older. Excluded null brands as this would hurt our final result as these brands are blank.  Next we calculated if any user was older than 21 as of Today 2/2/2025.  For this analysis we also identified that within the transactions table there is only 4 months of trnsactions for 2024.  
 
 When conducting this analysis include the top 8 brands due to  the top 3 - 8 brands having the same receipt count.  
 
@@ -31,17 +31,26 @@ In this analysis we joined the trnasactions table to the products table by barco
 
 Data Assumptions: When reviewing the data there can be multiple transactions for each receipt.  Interpreted this interaction as each receipt could have multiple of the same product purchased on the same receipt. The Final Sale outlined the amount sold of the singular product on the receiept if the final_quantity is more than 1 (excluded final_quantities that were 0 as didnt interpret as a sold product)
 
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/49c8e0e6-bd2b-41b2-8483-06586c301ebe)
+
+3. At what percent has Fetch grown year over year? [Link to SQL Query](https://github.com/whartzler/fetch_analysis/blob/main/Code%20Files/Feth_YOY_Review.sql)
+
+During this analysis we interpreted growth as users being created within the user tables.  Extracted the year from the created_date field to group by year in which the distinct user was created in case of possible duplicates than counted each user created within each year.  Than to see Year over Year growth we extracted the current year user count minus the prior year user count * 100 / prior year user count and converted to a %. 
+Through this review we can see from 2015 - 2022 Fetch has user growth but in the past two year 2023 & 2024 we saw a slight decline in overall user's. 
+
+The below results are as follows:
+![image](https://github.com/user-attachments/assets/6b43b69a-f966-4781-90ac-fb48b4c040ff)
+
+## Communication with Stakeholders
+
+(Data Quality Issues/insight and impacts)
+
+Good Afternoom, 
+
+When reviewing the transactions tables curious on why there is missing final_sale values when we have the receipt & barcode fields completed. Can we come to the conclusion that since we have the barcode of the product we can input the final sale value within the data set?  
+This would reduce the null values within the field and we could get a more clear picture about final_sales for users/stores and and possible downstream reporting. 
+
+On the products table there is a lot of missing barcodes,brands and manufacturerss.  How are these fields retrieved and stored? These could have a material impact on how downstream reporting/analysis as we could improve accuracy of products and whats purchased.   
 
 
 
-Notes
-Table Analyis
-- When importing the data noticed a couple of issues to correct
-  - Identified timedate fields and updated to YYYY-MM-DD dates for more simple viewing/grouping and to align with other date fields
-
-    - Both Tables had duplicate values within each column and did not have a primary key.  By adding and index we can create a Primary Key for each table.
-
- 
-- SQL Analysis
-  - the user ID to transaction ID matches were really few  
