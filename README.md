@@ -14,11 +14,13 @@ Concerns
 ## SQL Analysis
 
 1. What are the top 5 brands by receipts scanned among users 21 and over? [Link to SQL Query](https://github.com/whartzler/fetch_analysis/blob/main/Code%20Files/Top_5_Brand.sql)
-For this analysis we joined the products to the transactions table by barcode to extract the brand of the product purchased.  Than we joined the user to the transaction table by barcode to extract customer data and identify which customers were 21 and older. Excluded null brands as this would hurt our final result as these brands are blank and used the calculation if any user was older than 21 as of Today 2/2/2025 we included this user in the dataset.  
+
+For this analysis we joined the products to the transactions table by barcode to extract the brand of the product purchased. Than joined the user to the transaction table by barcode to extract customer data and identify which customers were 21 and older. Excluded null brands as this would hurt our final result as these brands are blank.  Next we calculated if any user was older than 21 as of Today 2/2/2025.  
 
 When conducting this analysis include the top 8 brands due to 3 - 8 brands having the same receipt count.  
 
 The Top five brands are:
+
 ![image](https://github.com/user-attachments/assets/2d005e26-69c1-4bc7-a678-ff2875543ffd)
 
 
