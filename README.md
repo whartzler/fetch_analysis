@@ -39,6 +39,7 @@ During this analysis we interpreted growth as users being created within the use
 Through this review we can see from 2015 - 2022 Fetch has user growth but in the past two year 2023 & 2024 we saw a slight decline in overall user's. 
 
 The below results are as follows:
+
 ![image](https://github.com/user-attachments/assets/6b43b69a-f966-4781-90ac-fb48b4c040ff)
 
 ## Communication with Stakeholders
