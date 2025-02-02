@@ -1,8 +1,10 @@
-select brand,sum(t.final_sale) as sum_final_sales FROM PUBLIC.transactions as t
-join public.products as p on t.barcode = p.barcode
-where p.category_2 = 'Dips & Salsa'
-and brand is not null
-group by 1
-order by sum(t.final_sale) desc
+SELECT p.brand, SUM(t.final_sale) AS total_sale_per_receipt
+    FROM PUBLIC.transactions AS t
+    JOIN PUBLIC.products AS p 
+        ON t.barcode = p.barcode
+WHERE p.category_2 = 'Dips & Salsa'
+and final_quantity > 0
+AND p.brand IS NOT NULL
+GROUP BY p.brand
+order by SUM(distinct t.final_sale) desc
 limit 1
-;
