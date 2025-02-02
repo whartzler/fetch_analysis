@@ -2,7 +2,7 @@
 Reviewing Customer data and providing insights
 
 ## Data Exploration
-Data quality 
+Data quality [Jupyter Notebook] (https://github.com/whartzler/fetch_analysis/blob/main/Code%20Files/TABLE%20ANALYSIS.ipynb)
   - When diving/cleaning the data the date formats had various formats.  To more easily review/query the data formatted all date's into YYYY-MM-DD.  
   - Identified 'zero' within transaction.csv and updated to 0 to keep numeric consistency
   - When reviewing the Transaction & Produccts tables noticed both did not have a primary key that was not a duplicate value. Inlcuded an index column to Transaction & Products Tables to allow ingestion into SQL tables.
